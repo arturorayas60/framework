@@ -1,0 +1,20 @@
+<h2>Editar Categoria</h2>
+
+<div class="container">
+	<div class="col-sm-12 col-md-8 mx-auto">
+		<form action="<?php
+		/**
+		 * editar.phtml vista editar categoria
+		 *
+		 * @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+		 */
+		echo APP_URL.'categorias/editar'; ?>" method="POST">
+		<div class="form-group">
+			<input type="hidden" value="<?php echo $this->categoria['id']; ?>" name="id">
+			<label for="nombre">Nombre</label>
+			<input type="text" name="nombre" class="form-control" value="<?php echo $this->categoria['nombre']; ?>">
+		</div>
+			<button class="btn btn-sm btn-primary pull-right" action="submit">Guardar</button>
+		</form>
+	</div>
+</div>

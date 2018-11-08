@@ -1,0 +1,28 @@
+<?php  
+/**
+ * Model.php
+ *
+ * @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+ */
+
+	/** *//**
+	 * Clase AppModel
+	 */	
+	class AppModel
+	{
+
+		/** *//**
+		 *  $_db
+		 */
+		protected $_db;
+
+		/** *//**
+		 * funcion constructora
+		 * @return type
+		 */
+		public function __construct()
+		{
+			$this->_db = new Database();
+		}
+	}
+?>

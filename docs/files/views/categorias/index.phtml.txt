@@ -1,0 +1,42 @@
+<h3>Listado de categorias</h3>
+<div class="container">
+	<a href="<?php
+	/**
+	 * index.phtml vista index categoria
+	 *
+	 * @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+	 */
+	 echo APP_URL.'categorias/agregar'; ?>">
+		<button class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus"></i>Agregar categoria</button>
+	</a>
+	<table class="table table-sm mg-top-10">
+		<thead class="thead-light">
+			<tr>
+				<th>Id</th>
+				<th>Descripcion</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>			
+			<?php foreach ($this->categorias as $categoria): ?>
+				<tr>
+					<td><?php echo $categoria["id"]; ?></td>
+					<td><?php echo $categoria["nombre"]; ?></td>
+					<td>
+						<a href="<?php echo APP_URL.'categorias/editar/'.$categoria["id"]; ?>">
+							<button class="btn btn-sm btn-primary">
+								<i class="glyphicon glyphicon-pencil"></i>
+							</button>
+						</a>
+						<a href="<?php echo	APP_URL.'categorias/eliminar/'.$categoria["id"]; ?>">
+							<button class="btn btn-sm btn-danger confirmation">
+								<i class="glyphicon glyphicon-trash"></i>
+							</button>
+						</a>
+					</td>
+				</tr>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+</div>
+

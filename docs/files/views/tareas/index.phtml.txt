@@ -1,0 +1,104 @@
+<h2>Lista de tareas</h2>
+
+<div class="container">
+	<div class="col-md-12 text-right">
+		<a href="<?php /**
+		 * index.php
+		 *
+		 * @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+		 */
+		echo APP_URL.'tareas/agregar'; ?>">
+		<button class="btn btn-sm btn-success pull-left">
+			<i class="glyphicon glyphicon-plus"></i>
+			Nueva Tarea
+		</button>
+	</a>
+</div>
+<div class="col-md-12 mg-top-10">
+	<table class="table table-sm">
+		<thead class="thead-light">
+			<tr>
+				<th>ID</th>
+				<th>Nombre</th>
+				<th>Fecha</th>
+				<th>Prioridad</th>
+				<th>Categoria</th>
+				<th>Estatus</th>
+				<th>Opciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<?php
+				if (!empty($this->tareas))				
+				 foreach ($this->tareas as $tarea): ?>
+					<tr>
+						<td>
+							<?php  echo $tarea["T"]['id'];?>							
+						</td>
+						<td>
+							<?php  echo $tarea["T"]['nombre'];?>							
+						</td>
+						<td>								
+							<?php  
+							$date = date_create($tarea["T"]['fecha']);
+							echo date_format($date,'d/m/Y');
+							?>								
+						</td>
+						<td>
+							<?php 
+							if ($tarea["T"]['prioridad'] <= 3) 
+							{
+								echo "<label class='text-success font-weight-bold'><i class='glyphicon glyphicon-stop'></i></label> Baja";
+							}
+							else if ($tarea["T"]['prioridad'] <=6) 
+							{
+								echo "<label class='text-warning font-weight-bold'><i class='glyphicon glyphicon-stop'></i></label> Media";
+							}
+							else
+							{
+								echo "<label class='text-danger font-weight-bold'><i class='glyphicon glyphicon-stop'></i></label> Alta";	
+							}
+							?>						
+						</td>
+						<td><?php  echo $tarea["C"]["Categoria"];?></td>
+						<td >
+							<?php if ($tarea["T"]['status'] == 0): ?>
+								<i class="glyphicon glyphicon-ban-circle"></i>
+								<?php else: ?>
+									<i class="glyphicon glyphicon-ok"></i>
+								<?php endif ?>
+							</td>
+							<td>
+								<a href="<?php  echo APP_URL.'tareas/editar/'.$tarea["T"]['id']; ?>">
+									<button class="btn btn-sm btn-primary">
+										<i class="glyphicon glyphicon-pencil"></i>
+									</button>
+								</a>
+								<a href="<?php  echo APP_URL.'tareas/eliminar/'.$tarea["T"]['id']; ?>">
+									<button class="btn btn-sm btn-danger confirmation">
+										<i class="glyphicon glyphicon-trash"></i>
+									</button>
+								</a>
+								<a href="<?php  echo APP_URL.'tareas/cambiarEstado/'.$tarea["T"]['id']."/".$tarea["T"]['status']; ?>">
+									<button class="btn btn-sm">
+										<?php 
+										if($tarea["T"]['status'] == 0)
+										{
+											echo "Habilitar";
+										}
+										else
+										{
+											echo "Deshabilitar";
+										}
+										?>
+									</button>
+								</a>
+							</td>
+						</tr>
+					<?php  endforeach  ?>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

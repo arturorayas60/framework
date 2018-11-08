@@ -1,0 +1,19 @@
+<h2>Agregar Categoria</h2>
+
+<div class="container">
+	<div class="col-sm-6 col-md-8 mx-auto">
+		<form action="<?php 
+		/**
+		 * agregar.phtml
+		 *
+		 * @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+		 */
+		echo APP_URL.'categorias/agregar'; ?>" method="POST">
+		<div class="form-group">
+			<label for="nombre">Nombre</label>	
+			<input type="text" name="nombre" class="form-control">
+		</div>
+		<button class="btn btn-sm btn-success pull-right" action="submit">Agregar</button>
+	</form>
+</div>
+</div>

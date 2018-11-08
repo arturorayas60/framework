@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+		Framework Básico:
+		<?php 
+		/**
+		* header.php cargar header
+		*
+		* @author Arturo Adonay Rayas Vergara <arturorayas60@gmail.com>
+		*/
+		if (isset($this->titulo)) {
+			echo $this->titulo;
+		}
+		?>
+	</title>
+	<link rel="stylesheet" href="<?php echo APP_URL_CSS."bootstrap.min.css"; ?>">
+</head>
+<body>
+	<nav class="navbar navbar-inverse nav-fills">
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li role="presentation">						
+						<a href="<?php  echo APP_URL.'tareas';?>" class="nav-item nav-link">
+							<span class="glyphicon glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+						Tareas</a>
+					</li>
+					<li role="presentation">						
+						<a href="<?php  echo APP_URL.'categorias';?>" class="nav-item nav-link">
+							<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+						Categorias</a>					
+					</li>	
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div clas="row">
+	<?php  
+	/**
+	 * php
+	 */
+	if (isset($this->flashMessage)) {
+		echo "<h4>".$this->flashMessage."</h4>";
+	}
+	?>
